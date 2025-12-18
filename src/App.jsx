@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import TinyTools from './pages/TinyTools';
 import MemoryLane from './pages/MemoryLane';
 import Echo from './pages/Echo';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="/tiny-tools" element={<TinyTools />} />
       <Route path="/memory-lane" element={<MemoryLane />} />
       <Route path="/echo" element={<Echo />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

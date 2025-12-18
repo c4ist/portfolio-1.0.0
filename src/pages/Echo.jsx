@@ -13,7 +13,7 @@ const Echo = () => {
   const animationFrameRef = useRef(null);
 
   const setupAudioStream = (stream) => {
-    // If there is an existing context, close it
+    // if we have existing context, this closes it 
     if (audioContextRef.current) {
       audioContextRef.current.close();
     }
@@ -29,12 +29,12 @@ const Echo = () => {
     setError('');
     draw();
 
-    // If system audio (video track present), stop video track as we don't need it
+    // stop video track as we don't need it
     if (sourceType === 'system') {
       stream.getVideoTracks().forEach(track => track.stop());
     }
 
-    // Handle stream ending (user stops sharing)
+// (user stops sharing)
     stream.getTracks()[0].onended = () => {
       stopAudio();
     };
@@ -48,7 +48,7 @@ const Echo = () => {
       } else {
         stream = await navigator.mediaDevices.getDisplayMedia({ video: { width: 1, height: 1 }, audio: true });
         if (stream.getAudioTracks().length === 0) {
-          stream.getTracks().forEach(track => track.stop()); // Stop video track if no audio
+          stream.getTracks().forEach(track => track.stop()); // just stops the video if there is no audio 
           throw new Error('No audio track shared. Please check "Share tab audio" when selecting a tab/screen.');
         }
       }
@@ -86,7 +86,7 @@ const Echo = () => {
       if (!analyserRef.current) return;
       analyserRef.current.getByteFrequencyData(dataArray);
       
-      ctx.fillStyle = '#0a0a0a'; // Dark background
+      ctx.fillStyle = '#0a0a0a'; 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const barWidth = (canvas.width / bufferLength) * 2.5;
@@ -94,9 +94,9 @@ const Echo = () => {
       let x = 0;
 
       for (let i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i] * 1.5; // Scale up
+        barHeight = dataArray[i] * 1.5; // increases scale 
 
-        // Gradient color
+        // gradient (fix later) 
         const r = barHeight + (25 * (i / bufferLength));
         const g = 250 * (i / bufferLength);
         const b = 50;
@@ -136,7 +136,7 @@ const Echo = () => {
             Echo
           </h1>
           <p className="text-neutral-500 max-w-lg mx-auto mb-8 leading-relaxed">
-            A minimal audio visualizer. It listens to the world around you and paints it in light. 
+            A minimal audio visualizer.
             No data is recorded or stored.
           </p>
 

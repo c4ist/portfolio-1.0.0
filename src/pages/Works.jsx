@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 const Works = () => {
   return (
@@ -20,62 +20,9 @@ const Works = () => {
         </header>
 
         <div className="space-y-12 animate-fade-in">
-          <div className="group">
-            <div className="flex justify-between items-baseline mb-1">
-              <Link to="/memory-lane" className="text-lg font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">
-                Memory Lane
-              </Link>
-              <Link to="/memory-lane" className="text-neutral-400 hover:text-neutral-900 transition-colors">
-                <ExternalLink size={16} />
-              </Link>
-            </div>
-            <p className="text-neutral-600 mb-3 leading-relaxed text-sm">
-              A digital garden for preserving family histories. Built because I wanted a better way to store my grandmother's recipes than a shoebox.
-            </p>
-            <div className="flex gap-3 text-xs font-mono text-neutral-400">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>PostgreSQL</span>
-            </div>
-          </div>
-
-          <div className="group">
-            <div className="flex justify-between items-baseline mb-1">
-              <Link to="/echo" className="text-lg font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">
-                Echo
-              </Link>
-              <Link to="/echo" className="text-neutral-400 hover:text-neutral-900 transition-colors">
-                <ExternalLink size={16} />
-              </Link>
-            </div>
-            <p className="text-neutral-600 mb-3 leading-relaxed text-sm">
-              A minimal audio visualizer that reacts to system audio in real-time. No trackers, no ads, just pretty lights dancing to your music.
-            </p>
-            <div className="flex gap-3 text-xs font-mono text-neutral-400">
-              <span>Rust</span>
-              <span>WebAssembly</span>
-              <span>Canvas API</span>
-            </div>
-          </div>
-
-          <div className="group">
-            <div className="flex justify-between items-baseline mb-1">
-              <Link to="/tiny-tools" className="text-lg font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">
-                Tiny Tools
-              </Link>
-              <Link to="/tiny-tools" className="text-neutral-400 hover:text-neutral-900 transition-colors">
-                <ExternalLink size={16} />
-              </Link>
-            </div>
-            <p className="text-neutral-600 mb-3 leading-relaxed text-sm">
-              A collection of single-purpose utilities for developers. JSON formatter, regex tester, and base64 converter that run entirely client-side.
-            </p>
-            <div className="flex gap-3 text-xs font-mono text-neutral-400">
-              <span>Vue</span>
-              <span>Tailwind</span>
-              <span>Vite</span>
-            </div>
-          </div>
+          <p className="text-neutral-500 italic">
+            Currently reimagining this space. Check back soon.
+          </p>
         </div>
       </main>
     </div>

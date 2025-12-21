@@ -80,10 +80,8 @@ const Home = () => {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 text-neutral-500 hover:text-neutral-900 transition-colors">
               <Linkedin size={20} />
             </a>
-            <a href="https://letterboxd.com/youswan" target="_blank" rel="noopener noreferrer" className="p-2 text-neutral-500 hover:text-neutral-900 transition-colors">
-              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor">
-                <path d="M12 12.3c-1.374-1.374-1.374-3.601 0-4.975 1.374-1.374 3.601-1.374 4.975 0 1.374 1.374 1.374 3.601 0 4.975-1.374 1.374-3.601 1.374-4.975 0zm-6.6-4.4c-1.374-1.374-1.374-3.601 0-4.975 1.374-1.374 3.601-1.374 4.975 0 1.374 1.374 1.374 3.601 0 4.975-1.374 1.374-3.601 1.374-4.975 0zm0 13.2c-1.374-1.374-1.374-3.601 0-4.975 1.374-1.374 3.601-1.374 4.975 0 1.374 1.374 1.374 3.601 0 4.975-1.374 1.374-3.601 1.374-4.975 0z" />
-              </svg>
+            <a href="https://letterboxd.com/youswan" target="_blank" rel="noopener noreferrer" className="p-2 transition-opacity hover:opacity-80">
+              <img src="/letterboxd-decal-dots-neg-mono-500px.png" alt="Letterboxd" className="w-6 h-6 object-contain opacity-60 hover:opacity-100" />
             </a>
             <a href="mailto:hello@example.com" className="p-2 text-neutral-500 hover:text-neutral-900 transition-colors">
               <Mail size={20} />

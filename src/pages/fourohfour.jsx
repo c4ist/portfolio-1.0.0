@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Compass } from 'lucide-react';
 
-const NotFound = () => {
+const FourOhFour = () => {
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans selection:bg-neutral-200 selection:text-neutral-900 flex items-center justify-center">
       <div className="max-w-md mx-auto px-6 text-center animate-fade-in">
@@ -26,4 +26,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default FourOhFour;

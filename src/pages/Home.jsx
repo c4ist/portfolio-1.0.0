@@ -73,7 +73,7 @@ const Home = () => {
               <ArrowRight size={18} className="text-neutral-400 group-hover:text-neutral-900 transition-colors" />
             </Link>
           </div>
-          <div className="flex gap-4 mt-12">
+          <div className="flex gap-4 mt-6">
             <a href="https://github.com/c4ist" target="_blank" rel="noopener noreferrer" className="p-2 text-neutral-500 hover:text-neutral-900 transition-colors">
               <Github size={20} />
             </a>

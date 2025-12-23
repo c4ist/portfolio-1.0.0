@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, Linkedin, ArrowRight } from 'lucide-react';
+import { Github, Mail, Linkedin, ArrowRight, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t, i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState('about');
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'es' : 'en';
+    i18n.changeLanguage(newLang);
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -36,40 +43,46 @@ const Home = () => {
         <div className="font-mono text-sm tracking-tighter font-medium text-neutral-500">
           cain
         </div>
-        <div className="flex gap-6 text-sm text-neutral-500 font-medium">
+        <div className="flex gap-6 text-sm text-neutral-500 font-medium items-center">
           <button
             onClick={() => scrollToSection('about')}
             className={`hover:text-neutral-900 transition-colors ${activeSection === 'about' ? 'text-neutral-900' : ''}`}
           >
-            about
+            {t('nav.about')}
           </button>
           <Link 
             to="/works" 
             className="hover:text-neutral-900 transition-colors"
           >
-            works
+            {t('nav.works')}
           </Link>
+          <button 
+            onClick={toggleLanguage}
+            className="hover:text-neutral-900 transition-colors ml-2"
+            aria-label="Toggle language"
+          >
+            <Globe size={16} />
+          </button>
         </div>
       </nav>
 
       <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
         <section id="about" className="min-h-[60vh] flex flex-col justify-center animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8 text-neutral-900 leading-tight">
-            I plant flowers. 
+            {t('home.hero')}
           </h1>
           <div className="prose prose-neutral prose-lg text-neutral-600 leading-relaxed max-w-2xl">
             <p className="mb-6">
-              Hi, I'm Cain, a second year high school student. 
-              I enjoy problem solving and clean syntax (I'm a fan of C++, lol.)
+              {t('home.intro')}
             </p>
             <p className="mb-8">
-              Currently tinkering with distributed systems and learning how to bake better sourdough. I really enjoy sci-fi novels and short documentaries. 
+              {t('home.description')}
             </p>
             <Link 
               to="/works"
               className="inline-flex items-center gap-2 text-neutral-900 font-medium hover:gap-3 transition-all group"
             >
-              See my work
+              {t('home.cta')}
               <ArrowRight size={18} className="text-neutral-400 group-hover:text-neutral-900 transition-colors" />
             </Link>
           </div>
@@ -91,7 +104,7 @@ const Home = () => {
 
         <footer className="pt-24 pb-8 text-center text-neutral-400 text-sm font-mono">
           <a href="https://www.youtube.com/watch?v=erh2ngRZxs0" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-600 transition-colors">
-            gurt
+            {t('home.footer')}
           </a>
         </footer>
       </main>

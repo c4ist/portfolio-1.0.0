@@ -37,7 +37,7 @@ const resources = {
       },
       "home": {
         "hero": "Planto flores.",
-        "intro": "Hola, soy Cain, estudiante de segundo año de secundaria. Disfruto de la resolución de problemas y la sintaxis limpia (soy fan de C++, lol.)",
+        "intro": "Hola, soy Caín, estudiante de segundo año de secundaria. Disfruto de la resolución de problemas y la sintaxis limpia (soy fan de C++, lol.)",
         "description": "Actualmente experimentando con sistemas distribuidos y aprendiendo a hornear mejor masa madre. Realmente disfruto de novelas de ciencia ficción y documentales cortos.",
         "cta": "Ver mi trabajo",
         "footer": "gurt"

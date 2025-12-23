@@ -41,7 +41,7 @@ const Home = () => {
     <div className="min-h-screen font-sans selection:bg-neutral-200 selection:text-neutral-900">
       <nav className="fixed top-0 left-0 w-full bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-between items-center">
         <div className="font-mono text-sm tracking-tighter font-medium text-neutral-500">
-          cain
+          caín
         </div>
         <div className="flex gap-6 text-sm text-neutral-500 font-medium items-center">
           <button

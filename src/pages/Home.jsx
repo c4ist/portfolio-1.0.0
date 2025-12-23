@@ -59,7 +59,7 @@ const Home = () => {
           </h1>
           <div className="prose prose-neutral prose-lg text-neutral-600 leading-relaxed max-w-2xl">
             <p className="mb-6">
-              Hi, I'm Cain, a second year high school student and gardener. 
+              Hi, I'm Cain, a second year high school student. 
               I enjoy problem solving and clean syntax (I'm a fan of C++, lol.)
             </p>
             <p className="mb-8">

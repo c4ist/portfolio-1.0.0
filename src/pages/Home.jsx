@@ -59,7 +59,7 @@ const Home = () => {
           </h1>
           <div className="prose prose-neutral prose-lg text-neutral-600 leading-relaxed max-w-2xl">
             <p className="mb-6">
-              Hi, I'm Cain, a second year high school student and son of the soil. 
+              Hi, I'm Cain, a second year high school student and gardener. 
               I enjoy problem solving and clean syntax (I'm a fan of C++, lol.)
             </p>
             <p className="mb-8">
@@ -83,7 +83,7 @@ const Home = () => {
             <a href="https://letterboxd.com/youswan" target="_blank" rel="noopener noreferrer" className="p-2 transition-opacity hover:opacity-80">
               <img src="/letterboxd-decal-dots-neg-mono-500px.png" alt="Letterboxd" className="w-6 h-6 object-contain opacity-60 hover:opacity-100" />
             </a>
-            <a href="mailto:hello@example.com" className="p-2 text-neutral-500 hover:text-neutral-900 transition-colors">
+            <a href="mailto:cain@otters.email" className="p-2 text-neutral-500 hover:text-neutral-900 transition-colors">
               <Mail size={20} />
             </a>
           </div>

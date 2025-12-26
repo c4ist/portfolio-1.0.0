@@ -7,7 +7,9 @@ const resources = {
     translation: {
       "nav": {
         "about": "about",
-        "works": "works"
+        "works": "works",
+        "literature": "literature",
+        "recipes": "recipes"
       },
       "home": {
         "hero": "I plant flowers.",
@@ -26,6 +28,22 @@ const resources = {
         "title": "Strayed off the path?",
         "description": "The page you're looking for doesn't seem to exist. It might have been moved, or perhaps it never was.",
         "back": "Return home"
+      },
+      "literature": {
+        "back": "Back",
+        "title": "Literature",
+        "subtitle": "Books, essays, and writings that have shaped my thinking.",
+        "currentlyReading": "Currently Reading",
+        "favorites": "Favorites",
+        "empty": "Coming soon."
+      },
+      "recipes": {
+        "back": "Back",
+        "title": "Recipes",
+        "subtitle": "Experiments in the kitchen, from sourdough to simple meals.",
+        "baking": "Baking",
+        "cooking": "Cooking",
+        "empty": "Coming soon."
       }
     }
   },
@@ -33,7 +51,9 @@ const resources = {
     translation: {
       "nav": {
         "about": "sobre mí",
-        "works": "trabajos"
+        "works": "trabajos",
+        "literature": "literatura",
+        "recipes": "recetas"
       },
       "home": {
         "hero": "Planto flores.",
@@ -52,6 +72,22 @@ const resources = {
         "title": "¿Te has desviado del camino?",
         "description": "La página que buscas no parece existir. Podría haberse movido, o quizás nunca existió.",
         "back": "Volver al inicio"
+      },
+      "literature": {
+        "back": "Atrás",
+        "title": "Literatura",
+        "subtitle": "Libros, ensayos y escritos que han moldeado mi pensamiento.",
+        "currentlyReading": "Leyendo Actualmente",
+        "favorites": "Favoritos",
+        "empty": "Próximamente."
+      },
+      "recipes": {
+        "back": "Atrás",
+        "title": "Recetas",
+        "subtitle": "Experimentos en la cocina, desde masa madre hasta comidas simples.",
+        "baking": "Panadería",
+        "cooking": "Cocina",
+        "empty": "Próximamente."
       }
     }
   }

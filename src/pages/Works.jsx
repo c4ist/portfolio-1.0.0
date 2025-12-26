@@ -1,19 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Sidebar from '../components/Sidebar';
 
 const Works = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen font-sans selection:bg-neutral-200 selection:text-neutral-900 bg-[#fafafa]">
-      <main className="max-w-2xl mx-auto px-6 py-12 md:py-20">
+    <div className="min-h-screen font-sans selection:bg-neutral-200 selection:text-neutral-900 bg-[#fafafa] flex">
+      <Sidebar />
+      
+      <div className="flex-1 ml-64">
+        <main className="max-w-2xl mx-auto px-6 py-12 md:py-20">
         <header className="mb-12 md:mb-16">
-          <Link to="/" className="inline-flex items-center gap-2 text-neutral-500 hover:text-neutral-900 transition-colors mb-6 text-xs font-medium uppercase tracking-wider">
-            <ArrowLeft size={14} />
-            {t('works.back')}
-          </Link>
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900 leading-tight">
             {t('works.title')}
           </h1>
@@ -28,6 +26,7 @@ const Works = () => {
           </p>
         </div>
       </main>
+      </div>
     </div>
   );
 };

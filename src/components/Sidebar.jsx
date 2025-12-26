@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Home, Briefcase, BookOpen, ChefHat } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, Briefcase, BookOpen, ChefHat, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const Sidebar = ({ isCollapsed, onToggle }) => {
+const Sidebar = ({ isCollapsed, onToggle, isMobileOpen, onMobileClose }) => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const navItems = [
     {
@@ -35,21 +46,45 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
   ];
 
   return (
-    <aside className={`fixed left-0 top-0 h-screen bg-neutral-50 border-r border-neutral-100 overflow-y-auto transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-56'}`}>
+    <>
+      {/* Mobile overlay */}
+      {isMobile && isMobileOpen && (
+        <div 
+          className="fixed inset-0 bg-black/20 z-40 md:hidden"
+          onClick={onMobileClose}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <aside className={`fixed left-0 top-0 h-screen bg-neutral-50 border-r border-neutral-100 overflow-y-auto transition-all duration-300 z-50 ${
+        isMobile 
+          ? `${isMobileOpen ? 'translate-x-0' : '-translate-x-full'} w-64`
+          : `${isCollapsed ? 'w-16' : 'w-56'}`
+      }`}>
       <div className="p-4">
         <div className="flex items-center justify-between mb-6">
-          {!isCollapsed && (
+          {(!isCollapsed || isMobile) && (
             <div className="font-mono text-sm tracking-tighter font-medium text-neutral-900">
               caín
             </div>
           )}
-          <button
-            onClick={onToggle}
-            className="p-1.5 hover:bg-neutral-200 rounded-md transition-colors text-neutral-600 hover:text-neutral-900"
-            aria-label="Toggle sidebar"
-          >
-            {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
-          </button>
+          {isMobile ? (
+            <button
+              onClick={onMobileClose}
+              className="p-1.5 hover:bg-neutral-200 rounded-md transition-colors text-neutral-600 hover:text-neutral-900"
+              aria-label="Close sidebar"
+            >
+              <X size={18} />
+            </button>
+          ) : (
+            <button
+              onClick={onToggle}
+              className="p-1.5 hover:bg-neutral-200 rounded-md transition-colors text-neutral-600 hover:text-neutral-900"
+              aria-label="Toggle sidebar"
+            >
+              {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+            </button>
+          )}
         </div>
         
         <nav className="space-y-0.5">
@@ -62,16 +97,17 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
               <div key={item.key}>
                 <Link
                   to={item.path}
+                  onClick={isMobile ? onMobileClose : undefined}
                   className={`flex items-center rounded-md text-sm transition-colors ${
-                    isCollapsed ? 'justify-center px-3 py-2' : 'gap-2.5 px-3 py-1.5'
+                    isCollapsed && !isMobile ? 'justify-center px-3 py-2' : 'gap-2.5 px-3 py-1.5'
                   } ${
                     isActive 
                       ? 'bg-neutral-900 text-white' 
                       : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900'
                   }`}
-                  title={isCollapsed ? item.label : undefined}
+                  title={isCollapsed && !isMobile ? item.label : undefined}
                 >
-                  {isCollapsed ? (
+                  {isCollapsed && !isMobile ? (
                     <span className="font-medium text-base">{firstLetter}</span>
                   ) : (
                     <>
@@ -86,6 +122,7 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
         </nav>
       </div>
     </aside>
+    </>
   );
 };
 

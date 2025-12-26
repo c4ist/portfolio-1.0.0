@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ExternalLink, Github, Star, GitFork } from 'lucide-react';
+import { ExternalLink, Github, Star, GitFork, Globe } from 'lucide-react';
 import Sidebar from '../components/Sidebar';
 import useKeyboardNav from '../hooks/useKeyboardNav';
 import { useSidebar } from '../context/SidebarContext';
 
 const Works = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { isCollapsed: sidebarCollapsed, toggleSidebar } = useSidebar();
   useKeyboardNav();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'es' : 'en';
+    i18n.changeLanguage(newLang);
+  };
   
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -55,6 +60,15 @@ const Works = () => {
       <Sidebar isCollapsed={sidebarCollapsed} onToggle={toggleSidebar} />
       
       <div className={`flex-1 transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
+        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-end items-center transition-all duration-300 ${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
+          <button 
+            onClick={toggleLanguage}
+            className="text-neutral-500 hover:text-neutral-900 transition-colors"
+            aria-label="Toggle language"
+          >
+            <Globe size={16} />
+          </button>
+        </nav>
         <main className="max-w-3xl mx-auto px-6 py-16 md:py-24">
           <header className="mb-16">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-4">

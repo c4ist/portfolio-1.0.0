@@ -35,7 +35,7 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
   ];
 
   return (
-    <aside className={`fixed left-0 top-0 h-screen bg-neutral-50 border-r border-neutral-200 overflow-y-auto transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-56'}`}>
+    <aside className={`fixed left-0 top-0 h-screen bg-neutral-50 border-r border-neutral-100 overflow-y-auto transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-56'}`}>
       <div className="p-4">
         <div className="flex items-center justify-between mb-6">
           {!isCollapsed && (

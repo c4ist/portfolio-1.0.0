@@ -47,7 +47,7 @@ const Home = () => {
       <Sidebar isCollapsed={sidebarCollapsed} onToggle={toggleSidebar} />
       
       <div className={`flex-1 transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
-        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-end items-center border-b border-neutral-200 transition-all duration-300 ${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
+        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-end items-center transition-all duration-300 ${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
           <button 
             onClick={toggleLanguage}
             className="text-neutral-500 hover:text-neutral-900 transition-colors"

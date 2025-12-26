@@ -24,7 +24,7 @@ const Works = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const response = await fetch(`https://api.github.com/users/${c4ist}/repos?sort=updated&per_page=10`);
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10`);
         const data = await response.json();
         
         const filteredRepos = data

@@ -35,9 +35,9 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
   ];
 
   return (
-    <aside className={`fixed left-0 top-0 h-screen bg-neutral-50 border-r border-neutral-200 overflow-y-auto transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-64'}`}>
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-8">
+    <aside className={`fixed left-0 top-0 h-screen bg-neutral-50 border-r border-neutral-200 overflow-y-auto transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-56'}`}>
+      <div className="p-4">
+        <div className="flex items-center justify-between mb-6">
           {!isCollapsed && (
             <div className="font-mono text-sm tracking-tighter font-medium text-neutral-900">
               caín
@@ -52,24 +52,33 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
           </button>
         </div>
         
-        <nav className="space-y-1">
+        <nav className="space-y-0.5">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
+            const firstLetter = item.label.charAt(0).toUpperCase();
             
             return (
               <div key={item.key}>
                 <Link
                   to={item.path}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
+                  className={`flex items-center rounded-md text-sm transition-colors ${
+                    isCollapsed ? 'justify-center px-3 py-2' : 'gap-2.5 px-3 py-1.5'
+                  } ${
                     isActive 
                       ? 'bg-neutral-900 text-white' 
                       : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900'
                   }`}
                   title={isCollapsed ? item.label : undefined}
                 >
-                  <Icon size={16} />
-                  {!isCollapsed && <span className="font-medium">{item.label}</span>}
+                  {isCollapsed ? (
+                    <span className="font-semibold text-base">{firstLetter}</span>
+                  ) : (
+                    <>
+                      <Icon size={15} />
+                      <span className="font-medium text-[13px]">{item.label}</span>
+                    </>
+                  )}
                 </Link>
               </div>
             );

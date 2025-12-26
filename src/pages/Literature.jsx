@@ -2,15 +2,19 @@ import React from 'react';
 import { BookOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
+import useKeyboardNav from '../hooks/useKeyboardNav';
+import { useSidebar } from '../context/SidebarContext';
 
 const Literature = () => {
   const { t } = useTranslation();
+  const { isCollapsed: sidebarCollapsed, toggleSidebar } = useSidebar();
+  useKeyboardNav();
 
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans selection:bg-neutral-200 selection:text-neutral-900 flex">
-      <Sidebar />
+      <Sidebar isCollapsed={sidebarCollapsed} onToggle={toggleSidebar} />
       
-      <div className="flex-1 ml-64">
+      <div className={`flex-1 transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
         <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
         <div className="flex items-center gap-3 mb-8">
           <BookOpen size={32} className="text-neutral-900" />

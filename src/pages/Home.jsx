@@ -3,10 +3,14 @@ import { Github, Mail, Linkedin, ArrowRight, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
+import useKeyboardNav from '../hooks/useKeyboardNav';
+import { useSidebar } from '../context/SidebarContext';
 
 const Home = () => {
   const { t, i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState('about');
+  const { isCollapsed: sidebarCollapsed, toggleSidebar } = useSidebar();
+  useKeyboardNav();
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'es' : 'en';
@@ -40,10 +44,10 @@ const Home = () => {
 
   return (
     <div className="min-h-screen font-sans selection:bg-neutral-200 selection:text-neutral-900 flex">
-      <Sidebar />
+      <Sidebar isCollapsed={sidebarCollapsed} onToggle={toggleSidebar} />
       
-      <div className="flex-1 ml-64">
-        <nav className="fixed top-0 right-0 left-64 bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-end items-center border-b border-neutral-200">
+      <div className={`flex-1 transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
+        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-end items-center border-b border-neutral-200 transition-all duration-300 ${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
           <button 
             onClick={toggleLanguage}
             className="text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -54,7 +58,7 @@ const Home = () => {
         </nav>
 
         <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
-        <section id="about" className="min-h-[60vh] flex flex-col justify-center animate-fade-in">
+        <section id="about" className="min-h-[60vh] flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8 text-neutral-900 leading-tight">
             {t('home.hero')}
           </h1>

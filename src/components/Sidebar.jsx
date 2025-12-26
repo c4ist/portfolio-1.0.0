@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Home, Briefcase, BookOpen, ChefHat } from 'l
 import { useTranslation } from 'react-i18next';
 
 const Sidebar = ({ isCollapsed, onToggle }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
 
   const navItems = [
@@ -56,7 +56,7 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
-            const firstLetter = item.label.charAt(0).toUpperCase();
+            const firstLetter = item.label.charAt(0).toLowerCase();
             
             return (
               <div key={item.key}>
@@ -72,7 +72,7 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
                   title={isCollapsed ? item.label : undefined}
                 >
                   {isCollapsed ? (
-                    <span className="font-semibold text-base">{firstLetter}</span>
+                    <span className="font-medium text-base">{firstLetter}</span>
                   ) : (
                     <>
                       <Icon size={15} />

@@ -7,25 +7,43 @@ const resources = {
     translation: {
       "nav": {
         "about": "about",
-        "works": "works"
+        "works": "works",
+        "literature": "literature",
+        "recipes": "recipes"
       },
       "home": {
-        "hero": "I plant flowers.",
-        "intro": "Hi, I'm Cain, a second year high school student. I enjoy problem solving and clean syntax (I'm a fan of C++, lol.)",
-        "description": "Currently tinkering with distributed systems and learning how to bake better sourdough. I really enjoy sci-fi novels and short documentaries.",
-        "cta": "See my work",
+        "hero": "i plant flowers.",
+        "intro": "hi, i'm cain, a second year high school student. i enjoy problem solving and clean syntax (i'm a fan of c++, lol.)",
+        "description": "currently tinkering with distributed systems and learning how to bake better sourdough. i really enjoy sci-fi novels and short documentaries.",
+        "cta": "see my work",
         "footer": "gurt"
       },    
       "works": {
-        "back": "Back",
-        "title": "Selected Works",
-        "subtitle": "A collection of digital artifacts, tools, and experiments.",
-        "empty": "Currently reimagining this space. Check back soon."
+        "back": "back",
+        "title": "selected works",
+        "subtitle": "a collection of digital artifacts, tools, and experiments.",
+        "empty": "currently reimagining this space. check back soon."
       },
       "404": {
         "title": "Strayed off the path?",
         "description": "The page you're looking for doesn't seem to exist. It might have been moved, or perhaps it never was.",
         "back": "Return home"
+      },
+      "literature": {
+        "back": "back",
+        "title": "literature",
+        "subtitle": "writings that have shaped my thinking.",
+        "currentlyReading": "currently reading",
+        "favorites": "favorites",
+        "empty": "coming soon."
+      },
+      "recipes": {
+        "back": "back",
+        "title": "recipes",
+        "subtitle": "experiments in the kitchen, from sourdough to simple meals.",
+        "baking": "baking",
+        "cooking": "cooking",
+        "empty": "coming soon."
       }
     }
   },
@@ -33,25 +51,43 @@ const resources = {
     translation: {
       "nav": {
         "about": "sobre mí",
-        "works": "trabajos"
+        "works": "trabajos",
+        "literature": "literatura",
+        "recipes": "recetas"
       },
       "home": {
-        "hero": "Planto flores.",
-        "intro": "Hola, soy Caín, estudiante de segundo año de secundaria. Disfruto de la resolución de problemas y la sintaxis limpia (soy fan de C++, lol.)",
-        "description": "Actualmente experimentando con sistemas distribuidos y aprendiendo a hornear mejor masa madre. Realmente disfruto de novelas de ciencia ficción y documentales cortos.",
-        "cta": "Ver mi trabajo",
+        "hero": "planto flores.",
+        "intro": "hola, soy caín, estudiante de segundo año de secundaria. disfruto de la resolución de problemas y la sintaxis limpia (soy fan de c++, lol.)",
+        "description": "actualmente experimentando con sistemas distribuidos y aprendiendo a hornear mejor masa madre. realmente disfruto de novelas de ciencia ficción y documentales cortos.",
+        "cta": "ver mi trabajo",
         "footer": "gurt"
       },
       "works": {
-        "back": "Atrás",
-        "title": "Trabajos Seleccionados",
-        "subtitle": "Una colección de artefactos digitales, herramientas y experimentos.",
-        "empty": "Actualmente reimaginando este espacio. Vuelve pronto."
+        "back": "atrás",
+        "title": "trabajos seleccionados",
+        "subtitle": "una colección de artefactos digitales, herramientas y experimentos.",
+        "empty": "actualmente reimaginando este espacio. vuelve pronto."
       },
       "404": {
-        "title": "¿Te has desviado del camino?",
-        "description": "La página que buscas no parece existir. Podría haberse movido, o quizás nunca existió.",
-        "back": "Volver al inicio"
+        "title": "¿te has desviado del camino?",
+        "description": "la página que buscas no parece existir. podría haberse movido, o quizás nunca existió.",
+        "back": "volver al inicio"
+      },
+      "literature": {
+        "back": "atrás",
+        "title": "literatura",
+        "subtitle": "escritos que han moldeado mi pensamiento.",
+        "currentlyReading": "leyendo actualmente",
+        "favorites": "favoritos",
+        "empty": "próximamente."
+      },
+      "recipes": {
+        "back": "atrás",
+        "title": "recetas",
+        "subtitle": "experimentos en la cocina, desde masa madre hasta comidas simples.",
+        "baking": "panadería",
+        "cooking": "cocina",
+        "empty": "próximamente."
       }
     }
   }

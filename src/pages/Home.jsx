@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Github, Mail, Linkedin, ArrowRight, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Sidebar from '../components/Sidebar';
+import useKeyboardNav from '../hooks/useKeyboardNav';
+import { useSidebar } from '../context/SidebarContext';
 
 const Home = () => {
   const { t, i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState('about');
+  const { isCollapsed: sidebarCollapsed, toggleSidebar } = useSidebar();
+  useKeyboardNav();
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'es' : 'en';
@@ -38,36 +43,22 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen font-sans selection:bg-neutral-200 selection:text-neutral-900">
-      <nav className="fixed top-0 left-0 w-full bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-between items-center">
-        <div className="font-mono text-sm tracking-tighter font-medium text-neutral-500">
-          caín
-        </div>
-        <div className="flex gap-6 text-sm text-neutral-500 font-medium items-center">
-          <button
-            onClick={() => scrollToSection('about')}
-            className={`hover:text-neutral-900 transition-colors ${activeSection === 'about' ? 'text-neutral-900' : ''}`}
-          >
-            {t('nav.about')}
-          </button>
-          <Link 
-            to="/works" 
-            className="hover:text-neutral-900 transition-colors"
-          >
-            {t('nav.works')}
-          </Link>
+    <div className="min-h-screen font-sans selection:bg-neutral-200 selection:text-neutral-900 flex">
+      <Sidebar isCollapsed={sidebarCollapsed} onToggle={toggleSidebar} />
+      
+      <div className={`flex-1 transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
+        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-end items-center transition-all duration-300 ${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
           <button 
             onClick={toggleLanguage}
-            className="hover:text-neutral-900 transition-colors ml-2"
+            className="text-neutral-500 hover:text-neutral-900 transition-colors"
             aria-label="Toggle language"
           >
             <Globe size={16} />
           </button>
-        </div>
-      </nav>
+        </nav>
 
-      <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
-        <section id="about" className="min-h-[60vh] flex flex-col justify-center animate-fade-in">
+        <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
+        <section id="about" className="min-h-[60vh] flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8 text-neutral-900 leading-tight">
             {t('home.hero')}
           </h1>
@@ -108,6 +99,7 @@ const Home = () => {
           </a>
         </footer>
       </main>
+      </div>
     </div>
   );
 };

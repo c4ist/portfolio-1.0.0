@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, Linkedin, ArrowRight, Globe } from 'lucide-react';
+import { Github, Mail, Linkedin, ArrowRight, Globe, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
@@ -10,6 +10,7 @@ const Home = () => {
   const { t, i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState('about');
   const { isCollapsed: sidebarCollapsed, toggleSidebar } = useSidebar();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useKeyboardNav();
 
   const toggleLanguage = () => {
@@ -44,10 +45,22 @@ const Home = () => {
 
   return (
     <div className="min-h-screen font-sans selection:bg-neutral-200 selection:text-neutral-900 flex">
-      <Sidebar isCollapsed={sidebarCollapsed} onToggle={toggleSidebar} />
+      <Sidebar 
+        isCollapsed={sidebarCollapsed} 
+        onToggle={toggleSidebar}
+        isMobileOpen={isMobileMenuOpen}
+        onMobileClose={() => setIsMobileMenuOpen(false)}
+      />
       
-      <div className={`flex-1 transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
-        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-50 py-6 px-6 md:px-12 flex justify-end items-center transition-all duration-300 ${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
+      <div className={`flex-1 transition-all duration-300 md:${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
+        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-30 py-6 px-6 md:px-12 flex justify-between md:justify-end items-center transition-all duration-300 left-0 md:${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="md:hidden text-neutral-500 hover:text-neutral-900 transition-colors"
+            aria-label="Open menu"
+          >
+            <Menu size={20} />
+          </button>
           <button 
             onClick={toggleLanguage}
             className="text-neutral-500 hover:text-neutral-900 transition-colors"

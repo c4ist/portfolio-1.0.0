@@ -26,7 +26,6 @@ const Literature = () => {
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1415428227i/20518872.jpg",
         rating: 5,
         progress: 65,
-        review: "a mind-bending exploration of first contact that challenges our understanding of physics and humanity's place in the universe. the dark forest theory is haunting.",
         genre: ["sci-fi", "hard sci-fi"],
         year: 2008
       }
@@ -38,7 +37,6 @@ const Literature = () => {
         author: "Frank Herbert",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1555447414i/44767458.jpg",
         rating: 5,
-        review: "the definitive science fiction epic. politics, ecology, religion, and human evolution woven into a desert planet's fate. paul's journey from boy to messiah is both thrilling and tragic.",
         genre: ["sci-fi", "epic"],
         year: 1965
       },
@@ -48,7 +46,6 @@ const Literature = () => {
         author: "Ursula K. Le Guin",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1488213612i/18423.jpg",
         rating: 5,
-        review: "le guin's masterpiece on gender and society. set on a frozen world where inhabitants are ambisexual, it explores what humanity means when stripped of gender constructs. beautiful prose, profound themes.",
         genre: ["sci-fi", "philosophical"],
         year: 1969
       },
@@ -58,7 +55,6 @@ const Literature = () => {
         author: "William Gibson",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1554437249i/6088007.jpg",
         rating: 4,
-        review: "the book that birthed cyberpunk. gibson's vision of cyberspace, AI, and corporate dystopia predicted our digital age with eerie accuracy. dense but rewarding.",
         genre: ["sci-fi", "cyberpunk"],
         year: 1984
       },
@@ -68,7 +64,6 @@ const Literature = () => {
         author: "Stanisław Lem",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1524596953i/95558.jpg",
         rating: 5,
-        review: "a haunting meditation on the impossibility of truly understanding alien intelligence. the sentient ocean of solaris manifests our deepest memories and regrets. philosophical sci-fi at its finest.",
         genre: ["sci-fi", "philosophical"],
         year: 1961
       },
@@ -78,7 +73,6 @@ const Literature = () => {
         author: "Cormac McCarthy",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1453995760i/394535.jpg",
         rating: 5,
-        review: "mccarthy's brutal masterpiece. the judge is one of literature's most terrifying characters—a philosophical monster who embodies violence as an eternal force. not an easy read, but unforgettable.",
         genre: ["literary fiction", "western"],
         year: 1985
       }
@@ -217,13 +211,6 @@ const Literature = () => {
                   </div>
                 )}
 
-                {/* Review */}
-                {book.review && (
-                  <p className="text-sm text-neutral-600 leading-relaxed mb-3">
-                    {book.review}
-                  </p>
-                )}
-
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {book.genre.map((tag, index) => (
@@ -264,13 +251,6 @@ const Literature = () => {
                     )}
                   </div>
                 </div>
-
-                {/* Review */}
-                {book.review && (
-                  <p className="text-sm text-neutral-600 leading-relaxed mb-3">
-                    {book.review}
-                  </p>
-                )}
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">

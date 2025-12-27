@@ -13,7 +13,7 @@ const resources = {
       },
       "home": {
         "hero": "i plant flowers.",
-        "intro": "hi, i'm cain, a second year high school student. i enjoy problem solving and clean syntax (i'm a fan of c++, lol.)",
+        "intro": "hi, i'm cain, a second year high school student. i've been learning and writing code for ~2 years. i enjoy problem solving and clean syntax (i'm a fan of c++, lol.)",
         "description": "currently tinkering with distributed systems and learning how to bake better sourdough. i really enjoy sci-fi novels and short documentaries.",
         "cta": "see my work",
         "footer": "gurt"

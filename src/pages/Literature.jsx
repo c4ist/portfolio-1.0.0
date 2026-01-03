@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
-import { BookOpen, Globe, Menu, Star, Clock, Heart } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
+import TopNav from '../components/TopNav';
 import useKeyboardNav from '../hooks/useKeyboardNav';
 import { useSidebar } from '../context/SidebarContext';
 
 const Literature = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { isCollapsed: sidebarCollapsed, toggleSidebar } = useSidebar();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('currently-reading');
   useKeyboardNav();
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'en' ? 'es' : 'en';
-    i18n.changeLanguage(newLang);
-  };
 
   const books = {
     currentlyReading: [
@@ -107,22 +103,10 @@ const Literature = () => {
       />
       
       <div className={`flex-1 transition-all duration-300 md:${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
-        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-30 py-6 px-6 md:px-12 flex justify-between md:justify-end items-center transition-all duration-300 left-0 md:${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
-          <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden text-neutral-500 hover:text-neutral-900 transition-colors"
-            aria-label="Open menu"
-          >
-            <Menu size={20} />
-          </button>
-          <button 
-            onClick={toggleLanguage}
-            className="text-neutral-500 hover:text-neutral-900 transition-colors"
-            aria-label="Toggle language"
-          >
-            <Globe size={16} />
-          </button>
-        </nav>
+        <TopNav
+          sidebarCollapsed={sidebarCollapsed}
+          onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
+        />
         <main className="max-w-4xl mx-auto px-6 pt-24 pb-24 md:pt-32 md:pb-32">
           <header className="mb-16">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-3">
@@ -163,7 +147,7 @@ const Literature = () => {
                   : 'text-neutral-400 hover:text-neutral-600'
               }`}
             >
-              want to read
+              {t('literature.wantToRead')}
             </button>
           </div>
 

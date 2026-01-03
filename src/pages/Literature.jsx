@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
-import { BookOpen, Globe, Menu, Star, Clock, Heart } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
+import TopNav from '../components/TopNav';
 import useKeyboardNav from '../hooks/useKeyboardNav';
 import { useSidebar } from '../context/SidebarContext';
 
 const Literature = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { isCollapsed: sidebarCollapsed, toggleSidebar } = useSidebar();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('currently-reading');
   useKeyboardNav();
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'en' ? 'es' : 'en';
-    i18n.changeLanguage(newLang);
-  };
 
   const books = {
     currentlyReading: [
@@ -26,7 +22,6 @@ const Literature = () => {
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1415428227i/20518872.jpg",
         rating: 5,
         progress: 65,
-        review: "a mind-bending exploration of first contact that challenges our understanding of physics and humanity's place in the universe. the dark forest theory is haunting.",
         genre: ["sci-fi", "hard sci-fi"],
         year: 2008
       }
@@ -38,7 +33,6 @@ const Literature = () => {
         author: "Frank Herbert",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1555447414i/44767458.jpg",
         rating: 5,
-        review: "the definitive science fiction epic. politics, ecology, religion, and human evolution woven into a desert planet's fate. paul's journey from boy to messiah is both thrilling and tragic.",
         genre: ["sci-fi", "epic"],
         year: 1965
       },
@@ -48,7 +42,6 @@ const Literature = () => {
         author: "Ursula K. Le Guin",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1488213612i/18423.jpg",
         rating: 5,
-        review: "le guin's masterpiece on gender and society. set on a frozen world where inhabitants are ambisexual, it explores what humanity means when stripped of gender constructs. beautiful prose, profound themes.",
         genre: ["sci-fi", "philosophical"],
         year: 1969
       },
@@ -58,7 +51,6 @@ const Literature = () => {
         author: "William Gibson",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1554437249i/6088007.jpg",
         rating: 4,
-        review: "the book that birthed cyberpunk. gibson's vision of cyberspace, AI, and corporate dystopia predicted our digital age with eerie accuracy. dense but rewarding.",
         genre: ["sci-fi", "cyberpunk"],
         year: 1984
       },
@@ -68,7 +60,6 @@ const Literature = () => {
         author: "Stanisław Lem",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1524596953i/95558.jpg",
         rating: 5,
-        review: "a haunting meditation on the impossibility of truly understanding alien intelligence. the sentient ocean of solaris manifests our deepest memories and regrets. philosophical sci-fi at its finest.",
         genre: ["sci-fi", "philosophical"],
         year: 1961
       },
@@ -78,7 +69,6 @@ const Literature = () => {
         author: "Cormac McCarthy",
         cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1453995760i/394535.jpg",
         rating: 5,
-        review: "mccarthy's brutal masterpiece. the judge is one of literature's most terrifying characters—a philosophical monster who embodies violence as an eternal force. not an easy read, but unforgettable.",
         genre: ["literary fiction", "western"],
         year: 1985
       }
@@ -113,22 +103,10 @@ const Literature = () => {
       />
       
       <div className={`flex-1 transition-all duration-300 md:${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
-        <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-30 py-6 px-6 md:px-12 flex justify-between md:justify-end items-center transition-all duration-300 left-0 md:${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
-          <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden text-neutral-500 hover:text-neutral-900 transition-colors"
-            aria-label="Open menu"
-          >
-            <Menu size={20} />
-          </button>
-          <button 
-            onClick={toggleLanguage}
-            className="text-neutral-500 hover:text-neutral-900 transition-colors"
-            aria-label="Toggle language"
-          >
-            <Globe size={16} />
-          </button>
-        </nav>
+        <TopNav
+          sidebarCollapsed={sidebarCollapsed}
+          onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
+        />
         <main className="max-w-4xl mx-auto px-6 pt-24 pb-24 md:pt-32 md:pb-32">
           <header className="mb-16">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-3">
@@ -169,7 +147,7 @@ const Literature = () => {
                   : 'text-neutral-400 hover:text-neutral-600'
               }`}
             >
-              want to read
+              {t('literature.wantToRead')}
             </button>
           </div>
 
@@ -217,13 +195,6 @@ const Literature = () => {
                   </div>
                 )}
 
-                {/* Review */}
-                {book.review && (
-                  <p className="text-sm text-neutral-600 leading-relaxed mb-3">
-                    {book.review}
-                  </p>
-                )}
-
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {book.genre.map((tag, index) => (
@@ -264,13 +235,6 @@ const Literature = () => {
                     )}
                   </div>
                 </div>
-
-                {/* Review */}
-                {book.review && (
-                  <p className="text-sm text-neutral-600 leading-relaxed mb-3">
-                    {book.review}
-                  </p>
-                )}
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">

@@ -13,7 +13,7 @@ const resources = {
       },
       "home": {
         "hero": "i plant flowers.",
-        "intro": "hi, i'm cain, a second year high school student. i enjoy problem solving and clean syntax (i'm a fan of c++, lol.)",
+        "intro": "hi, i'm cain, a second year high school student. i've been learning and writing code for ~2 years. i enjoy problem solving and clean syntax (i'm a fan of c++, lol.)",
         "description": "currently tinkering with distributed systems and learning how to bake better sourdough. i really enjoy sci-fi novels and short documentaries.",
         "cta": "see my work",
         "footer": "gurt"
@@ -22,6 +22,8 @@ const resources = {
         "back": "back",
         "title": "selected works",
         "subtitle": "a collection of digital artifacts, tools, and experiments.",
+        "loading": "loading projects...",
+        "noDescription": "no description.",
         "empty": "currently reimagining this space. check back soon."
       },
       "404": {
@@ -35,6 +37,7 @@ const resources = {
         "subtitle": "writings that have shaped my thinking.",
         "currentlyReading": "currently reading",
         "favorites": "favorites",
+        "wantToRead": "want to read",
         "empty": "coming soon."
       },
       "recipes": {
@@ -66,6 +69,8 @@ const resources = {
         "back": "atrás",
         "title": "trabajos seleccionados",
         "subtitle": "una colección de artefactos digitales, herramientas y experimentos.",
+        "loading": "cargando proyectos...",
+        "noDescription": "sin descripción.",
         "empty": "actualmente reimaginando este espacio. vuelve pronto."
       },
       "404": {
@@ -79,6 +84,7 @@ const resources = {
         "subtitle": "escritos que han moldeado mi pensamiento.",
         "currentlyReading": "leyendo actualmente",
         "favorites": "favoritos",
+        "wantToRead": "por leer",
         "empty": "próximamente."
       },
       "recipes": {

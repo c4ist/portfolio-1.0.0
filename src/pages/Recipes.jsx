@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ChefHat } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
 import TopNav from '../components/TopNav';
@@ -27,16 +26,14 @@ const Recipes = () => {
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         />
         <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
-        <div className="flex items-center gap-3 mb-8">
-          <ChefHat size={32} className="text-neutral-900" />
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900">
+        <header className="mb-16">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-4">
             {t('recipes.title')}
           </h1>
-        </div>
-        
-        <p className="text-lg text-neutral-600 mb-12 leading-relaxed">
-          {t('recipes.subtitle')}
-        </p>
+          <p className="text-lg text-neutral-600 leading-relaxed">
+            {t('recipes.subtitle')}
+          </p>
+        </header>
 
         <div className="space-y-8">
           <div className="border-l-2 border-neutral-200 pl-6 py-2">

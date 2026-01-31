@@ -66,7 +66,7 @@ const Works = () => {
           sidebarCollapsed={sidebarCollapsed}
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         />
-        <main className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+        <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
           <header className="mb-16">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-4">
               {t('works.title')}
@@ -99,6 +99,7 @@ const Works = () => {
                       alt={`${repo.name} preview`}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      onError={(e) => e.currentTarget.style.display = 'none'}
                     />
                   </div>
                   

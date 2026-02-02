@@ -107,12 +107,12 @@ const Literature = () => {
           sidebarCollapsed={sidebarCollapsed}
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         />
-        <main className="max-w-4xl mx-auto px-6 pt-24 pb-24 md:pt-32 md:pb-32">
+        <main className="max-w-4xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
           <header className="mb-16">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-3">
               {t('literature.title')}
             </h1>
-            <p className="text-base text-neutral-500 leading-relaxed">
+            <p className="text-lg text-neutral-600 leading-relaxed">
               {t('literature.subtitle')}
             </p>
           </header>
@@ -154,8 +154,20 @@ const Literature = () => {
           {/* Book List */}
           <div className="space-y-12">
             {activeTab === 'currently-reading' && books.currentlyReading.map((book) => (
-              <article key={book.id} className="group">
-                <div className="mb-4">
+              <article key={book.id} className="group flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div className="w-24 md:w-32 flex-shrink-0 aspect-[2/3] bg-neutral-100 rounded-md overflow-hidden shadow-sm">
+                  <img 
+                    src={book.cover} 
+                    alt={book.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://placehold.co/200x300/f5f5f5/a3a3a3?text=No+Cover';
+                      e.currentTarget.onerror = null; // Prevent infinite loop
+                    }}
+                  />
+                </div>
+                <div className="flex-1 min-w-0 py-1">
                   <h3 className="text-2xl font-medium text-neutral-900 mb-2">
                     {book.title}
                   </h3>
@@ -210,8 +222,20 @@ const Literature = () => {
             ))}
 
             {activeTab === 'favorites' && books.favorites.map((book) => (
-              <article key={book.id} className="group">
-                <div className="mb-4">
+              <article key={book.id} className="group flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div className="w-24 md:w-32 flex-shrink-0 aspect-[2/3] bg-neutral-100 rounded-md overflow-hidden shadow-sm">
+                  <img 
+                    src={book.cover} 
+                    alt={book.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://placehold.co/200x300/f5f5f5/a3a3a3?text=No+Cover';
+                      e.currentTarget.onerror = null;
+                    }}
+                  />
+                </div>
+                <div className="flex-1 min-w-0 py-1">
                   <h3 className="text-2xl font-medium text-neutral-900 mb-2">
                     {book.title}
                   </h3>
@@ -234,25 +258,37 @@ const Literature = () => {
                       </>
                     )}
                   </div>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {book.genre.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="text-xs text-neutral-500"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {book.genre.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-0.5 text-xs font-medium bg-neutral-100 text-neutral-600 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
 
             {activeTab === 'want-to-read' && books.wantToRead.map((book) => (
-              <article key={book.id} className="group">
-                <div className="mb-3">
+              <article key={book.id} className="group flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div className="w-24 md:w-32 flex-shrink-0 aspect-[2/3] bg-neutral-100 rounded-md overflow-hidden shadow-sm">
+                  <img 
+                    src={book.cover} 
+                    alt={book.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://placehold.co/200x300/f5f5f5/a3a3a3?text=No+Cover';
+                      e.currentTarget.onerror = null;
+                    }}
+                  />
+                </div>
+                <div className="flex-1 min-w-0 py-1">
                   <h3 className="text-2xl font-medium text-neutral-900 mb-2">
                     {book.title}
                   </h3>
@@ -261,18 +297,18 @@ const Literature = () => {
                     <span>·</span>
                     <span>{book.year}</span>
                   </div>
-                </div>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {book.genre.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="text-xs text-neutral-500"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {book.genre.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-0.5 text-xs font-medium bg-neutral-100 text-neutral-600 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}

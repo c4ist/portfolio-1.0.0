@@ -7,20 +7,54 @@ const resources = {
     translation: {
       "nav": {
         "about": "about",
-        "works": "works"
+        "skills": "skills",
+        "experience": "experience",
+        "works": "works",
+        "contact": "contact"
       },
       "home": {
         "hero": "I plant flowers.",
         "intro": "Hi, I'm Cain, a second year high school student. I enjoy problem solving and clean syntax (I'm a fan of C++, lol.)",
         "description": "Currently tinkering with distributed systems and learning how to bake better sourdough. I really enjoy sci-fi novels and short documentaries.",
         "cta": "See my work",
-        "footer": "gurt"
+        "footer": "gurt",
+        "skills": {
+          "title": "Skills & Technologies",
+          "subtitle": "Tools and technologies I work with",
+          "categories": {
+            "languages": "Languages",
+            "frameworks": "Frameworks & Libraries",
+            "tools": "Tools & Platforms"
+          }
+        },
+        "experience": {
+          "title": "Experience & Education",
+          "subtitle": "My journey so far",
+          "education": "Education",
+          "learning": "Currently Learning",
+          "interests": "Interests"
+        },
+        "contact": {
+          "title": "Get in Touch",
+          "subtitle": "Let's build something together",
+          "email": "Email me",
+          "github": "GitHub",
+          "linkedin": "LinkedIn"
+        }
       },    
       "works": {
         "back": "Back",
         "title": "Selected Works",
         "subtitle": "A collection of digital artifacts, tools, and experiments.",
-        "empty": "Currently reimagining this space. Check back soon."
+        "empty": "Currently reimagining this space. Check back soon.",
+        "viewProject": "View Project",
+        "viewCode": "View Code",
+        "categories": {
+          "all": "All",
+          "web": "Web",
+          "systems": "Systems",
+          "tools": "Tools"
+        }
       },
       "404": {
         "title": "Strayed off the path?",
@@ -33,20 +67,54 @@ const resources = {
     translation: {
       "nav": {
         "about": "sobre mí",
-        "works": "trabajos"
+        "skills": "habilidades",
+        "experience": "experiencia",
+        "works": "trabajos",
+        "contact": "contacto"
       },
       "home": {
         "hero": "Planto flores.",
         "intro": "Hola, soy Caín, estudiante de segundo año de secundaria. Disfruto de la resolución de problemas y la sintaxis limpia (soy fan de C++, lol.)",
         "description": "Actualmente experimentando con sistemas distribuidos y aprendiendo a hornear mejor masa madre. Realmente disfruto de novelas de ciencia ficción y documentales cortos.",
         "cta": "Ver mi trabajo",
-        "footer": "gurt"
+        "footer": "gurt",
+        "skills": {
+          "title": "Habilidades y Tecnologías",
+          "subtitle": "Herramientas y tecnologías con las que trabajo",
+          "categories": {
+            "languages": "Lenguajes",
+            "frameworks": "Frameworks y Bibliotecas",
+            "tools": "Herramientas y Plataformas"
+          }
+        },
+        "experience": {
+          "title": "Experiencia y Educación",
+          "subtitle": "Mi trayectoria hasta ahora",
+          "education": "Educación",
+          "learning": "Aprendiendo Actualmente",
+          "interests": "Intereses"
+        },
+        "contact": {
+          "title": "Ponte en Contacto",
+          "subtitle": "Construyamos algo juntos",
+          "email": "Envíame un correo",
+          "github": "GitHub",
+          "linkedin": "LinkedIn"
+        }
       },
       "works": {
         "back": "Atrás",
         "title": "Trabajos Seleccionados",
         "subtitle": "Una colección de artefactos digitales, herramientas y experimentos.",
-        "empty": "Actualmente reimaginando este espacio. Vuelve pronto."
+        "empty": "Actualmente reimaginando este espacio. Vuelve pronto.",
+        "viewProject": "Ver Proyecto",
+        "viewCode": "Ver Código",
+        "categories": {
+          "all": "Todos",
+          "web": "Web",
+          "systems": "Sistemas",
+          "tools": "Herramientas"
+        }
       },
       "404": {
         "title": "¿Te has desviado del camino?",

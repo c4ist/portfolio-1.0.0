@@ -251,10 +251,10 @@ const Home = () => {
             </h3>
             <div className="flex flex-wrap gap-3">
               <span className="px-4 py-2 bg-white text-neutral-700 rounded-lg text-sm font-medium shadow-sm">
-                🧬 Distributed Systems
+                🔀 Distributed Systems
               </span>
               <span className="px-4 py-2 bg-white text-neutral-700 rounded-lg text-sm font-medium shadow-sm">
-                🍞 Sourdough Baking
+                🥖 Sourdough Baking
               </span>
               <span className="px-4 py-2 bg-white text-neutral-700 rounded-lg text-sm font-medium shadow-sm">
                 📚 Sci-Fi Novels

@@ -13,31 +13,31 @@ const resources = {
       },
       "home": {
         "hero": {
-          "eyebrow": "portfolio",
-          "title": "i plant flowers and build digital things.",
-          "subtitle": "i'm cain, a second year high school student focused on careful frontend craft and systems-oriented thinking.",
+          "eyebrow": "ml + systems",
+          "title": "i build machine learning systems with distributed thinking.",
+          "subtitle": "i'm cain, a second year high school student specializing in machine learning, computer vision, and distributed systems.",
           "primaryCta": "jump to featured works",
           "secondaryCta": "read about me"
         },
         "about": {
           "eyebrow": "about",
-          "title": "building carefully, learning continuously.",
-          "description": "i enjoy clean syntax, practical tooling, and projects that evolve with intention.",
-          "paragraphOne": "i've been writing code for around two years, with a focus on problem solving and architecture that stays simple as the codebase grows.",
-          "paragraphTwo": "right now i'm exploring distributed systems, sharpening UI fundamentals, and documenting lessons from books and baking experiments.",
-          "cta": "browse all projects"
+          "title": "learning so elite they say im like an llm",
+          "description": "i focus on practical ML software, model pipelines, and infrastructure that scales cleanly.",
+          "paragraphOne": "my main work is in machine learning and computer vision, including a facial recognition system built around robust detection and embedding-based matching.",
+          "paragraphTwo": "i also study distributed systems to make ML workloads reliable, observable, and production-friendly.",
+          "cta": "explore my projects"
         },
         "featured": {
           "eyebrow": "featured works",
-          "title": "selected projects",
-          "description": "a curated set of things i've built, tested, and iterated on.",
+          "title": "featured machine learning work",
+          "description": "real projects centered on ML systems, inference workflows, and engineering fundamentals.",
           "cta": "view full archive",
           "empty": "featured projects are being curated."
         },
         "other": {
           "eyebrow": "other sections",
-          "title": "beyond coding",
-          "description": "explore reading notes, kitchen experiments, and the links where i post updates.",
+          "title": "reading + experiments",
+          "description": "notes, books, and side experiments that support my machine learning and systems work.",
           "literatureTitle": "literature",
           "literatureDescription": "books, notes, and ideas currently shaping my thinking.",
           "recipesTitle": "recipes",
@@ -53,7 +53,7 @@ const resources = {
       },    
       "works": {
         "title": "selected works",
-        "subtitle": "a collection of digital artifacts, tools, and experiments.",
+        "subtitle": "machine learning systems, distributed experiments, and supporting tools.",
         "empty": "currently reimagining this space. check back soon.",
         "loadError": "unable to load projects right now.",
         "backToFeatured": "back to featured works",
@@ -96,31 +96,31 @@ const resources = {
       },
       "home": {
         "hero": {
-          "eyebrow": "portafolio",
-          "title": "planto flores y construyo cosas digitales.",
-          "subtitle": "soy caín, estudiante de segundo año de secundaria, enfocado en interfaces cuidadas y pensamiento orientado a sistemas.",
+          "eyebrow": "ml + sistemas",
+          "title": "construyo sistemas de aprendizaje automático con mentalidad distribuida.",
+          "subtitle": "soy caín, estudiante de segundo año de secundaria, especializado en aprendizaje automático, visión por computadora y sistemas distribuidos.",
           "primaryCta": "ir a trabajos destacados",
           "secondaryCta": "leer sobre mí"
         },
         "about": {
           "eyebrow": "sobre mí",
-          "title": "construyendo con cuidado, aprendiendo siempre.",
-          "description": "disfruto la sintaxis limpia, las herramientas prácticas y los proyectos que evolucionan con intención.",
-          "paragraphOne": "llevo cerca de dos años programando, con enfoque en resolver problemas y mantener una arquitectura simple mientras el código crece.",
-          "paragraphTwo": "ahora mismo exploro sistemas distribuidos, mejoro fundamentos de UI y documento aprendizajes de libros y experimentos en la cocina.",
-          "cta": "ver todos los proyectos"
+          "title": "aprendizaje automático primero, sistemas por diseño.",
+          "description": "me enfoco en software de ML práctico, pipelines de modelos e infraestructura que escala de forma limpia.",
+          "paragraphOne": "mi trabajo principal está en aprendizaje automático y visión por computadora, incluyendo un sistema de reconocimiento facial basado en detección robusta y matching por embeddings.",
+          "paragraphTwo": "también estudio sistemas distribuidos para que las cargas de ML sean confiables, observables y listas para producción.",
+          "cta": "explorar mis proyectos"
         },
         "featured": {
           "eyebrow": "trabajos destacados",
-          "title": "proyectos seleccionados",
-          "description": "una selección curada de cosas que he construido, probado e iterado.",
+          "title": "trabajo destacado en aprendizaje automático",
+          "description": "proyectos reales centrados en sistemas de ML, flujos de inferencia y fundamentos de ingeniería.",
           "cta": "ver archivo completo",
           "empty": "los proyectos destacados se están curando."
         },
         "other": {
           "eyebrow": "otras secciones",
-          "title": "más allá del código",
-          "description": "explora notas de lectura, experimentos de cocina y enlaces donde comparto actualizaciones.",
+          "title": "lectura + experimentos",
+          "description": "notas, libros y experimentos paralelos que apoyan mi trabajo en ML y sistemas.",
           "literatureTitle": "literatura",
           "literatureDescription": "libros, notas e ideas que están moldeando mi forma de pensar.",
           "recipesTitle": "recetas",
@@ -136,7 +136,7 @@ const resources = {
       },
       "works": {
         "title": "trabajos seleccionados",
-        "subtitle": "una colección de artefactos digitales, herramientas y experimentos.",
+        "subtitle": "sistemas de aprendizaje automático, experimentos distribuidos y herramientas de apoyo.",
         "empty": "actualmente reimaginando este espacio. vuelve pronto.",
         "loadError": "no se pudieron cargar los proyectos en este momento.",
         "backToFeatured": "volver a trabajos destacados",

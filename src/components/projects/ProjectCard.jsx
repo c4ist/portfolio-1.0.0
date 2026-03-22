@@ -8,7 +8,7 @@ const ProjectCard = ({ project, showFeaturedBadge = false }) => {
 
   return (
     <article className="group border border-neutral-200 rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-      <div className="relative aspect-[16/10] overflow-hidden bg-neutral-100">
+      <div className="relative aspect-16/10 overflow-hidden bg-neutral-100">
         <img
           src={project.image}
           alt={`${project.title} preview`}

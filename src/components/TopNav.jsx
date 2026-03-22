@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const TopNav = ({ sidebarCollapsed, onOpenMobileMenu }) => {
   const { i18n } = useTranslation();
+  const navOffsetClass = sidebarCollapsed ? 'md:left-16' : 'md:left-56';
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'es' : 'en';
@@ -11,7 +12,9 @@ const TopNav = ({ sidebarCollapsed, onOpenMobileMenu }) => {
   };
 
   return (
-    <nav className={`fixed top-0 right-0 bg-[#fafafa]/80 backdrop-blur-sm z-30 py-6 px-6 md:px-12 flex justify-between md:justify-end items-center transition-all duration-300 left-0 md:${sidebarCollapsed ? 'left-16' : 'left-56'}`}>
+    <nav
+      className={`fixed top-0 right-0 left-0 ${navOffsetClass} z-30 flex items-center justify-between bg-[#fafafa]/80 px-6 py-6 backdrop-blur-sm transition-all duration-300 md:justify-end md:px-12`}
+    >
       <button
         onClick={onOpenMobileMenu}
         className="md:hidden text-neutral-500 hover:text-neutral-900 transition-colors"

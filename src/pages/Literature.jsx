@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import Sidebar from '../components/Sidebar';
-import TopNav from '../components/TopNav';
-import useKeyboardNav from '../hooks/useKeyboardNav';
-import { useSidebar } from '../context/SidebarContext';
+import PageShell from '../components/layout/PageShell';
 
 const Literature = () => {
   const { t } = useTranslation();
-  const { isCollapsed: sidebarCollapsed, toggleSidebar } = useSidebar();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('currently-reading');
-  useKeyboardNav();
 
   const books = {
     currentlyReading: [
@@ -94,20 +88,7 @@ const Literature = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] font-sans selection:bg-neutral-200 selection:text-neutral-900 flex">
-      <Sidebar 
-        isCollapsed={sidebarCollapsed} 
-        onToggle={toggleSidebar}
-        isMobileOpen={isMobileMenuOpen}
-        onMobileClose={() => setIsMobileMenuOpen(false)}
-      />
-      
-      <div className={`flex-1 transition-all duration-300 md:${sidebarCollapsed ? 'ml-16' : 'ml-56'}`}>
-        <TopNav
-          sidebarCollapsed={sidebarCollapsed}
-          onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
-        />
-        <main className="max-w-4xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
+    <PageShell mainClassName="max-w-4xl mx-auto px-6 pt-32 pb-24 md:pt-48 md:pb-32">
           <header className="mb-16">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-3">
               {t('literature.title')}
@@ -155,7 +136,7 @@ const Literature = () => {
           <div className="space-y-12">
             {activeTab === 'currently-reading' && books.currentlyReading.map((book) => (
               <article key={book.id} className="group flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-24 md:w-32 flex-shrink-0 aspect-[2/3] bg-neutral-100 rounded-md overflow-hidden shadow-sm">
+                <div className="w-24 md:w-32 shrink-0 aspect-2/3 bg-neutral-100 rounded-md overflow-hidden shadow-sm">
                   <img 
                     src={book.cover} 
                     alt={book.title}
@@ -223,7 +204,7 @@ const Literature = () => {
 
             {activeTab === 'favorites' && books.favorites.map((book) => (
               <article key={book.id} className="group flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-24 md:w-32 flex-shrink-0 aspect-[2/3] bg-neutral-100 rounded-md overflow-hidden shadow-sm">
+                <div className="w-24 md:w-32 shrink-0 aspect-2/3 bg-neutral-100 rounded-md overflow-hidden shadow-sm">
                   <img 
                     src={book.cover} 
                     alt={book.title}
@@ -276,7 +257,7 @@ const Literature = () => {
 
             {activeTab === 'want-to-read' && books.wantToRead.map((book) => (
               <article key={book.id} className="group flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-24 md:w-32 flex-shrink-0 aspect-[2/3] bg-neutral-100 rounded-md overflow-hidden shadow-sm">
+                <div className="w-24 md:w-32 shrink-0 aspect-2/3 bg-neutral-100 rounded-md overflow-hidden shadow-sm">
                   <img 
                     src={book.cover} 
                     alt={book.title}
@@ -313,9 +294,7 @@ const Literature = () => {
               </article>
             ))}
           </div>
-        </main>
-      </div>
-    </div>
+    </PageShell>
   );
 };
 

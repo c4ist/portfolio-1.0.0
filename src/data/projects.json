@@ -1,0 +1,56 @@
+[
+  {
+    "id": "portfolio-1-0",
+    "title": "Portfolio 1.0",
+    "description": "A multilingual personal portfolio focused on clean typography and keyboard-first navigation.",
+    "image": "/assets/projects/portfolio.svg",
+    "tags": ["React", "Vite", "Tailwind CSS", "i18n"],
+    "link": "https://github.com/c4ist/portfolio-1.0.0",
+    "repository": "https://github.com/c4ist/portfolio-1.0.0",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "systems-lab",
+    "title": "Systems Lab Notes",
+    "description": "An evolving collection of distributed systems experiments, benchmarks, and architecture writeups.",
+    "image": "/assets/projects/systems-lab.svg",
+    "tags": ["Distributed Systems", "C++", "Observability"],
+    "link": "https://github.com/c4ist",
+    "repository": "https://github.com/c4ist",
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "cinema-log",
+    "title": "Cinema Log",
+    "description": "A minimal movie journal concept that blends ratings, notes, and visual moodboards in one place.",
+    "image": "/assets/projects/cinema-log.svg",
+    "tags": ["UX", "Frontend", "Content"],
+    "link": "https://letterboxd.com/youswan",
+    "featured": true,
+    "order": 3
+  },
+  {
+    "id": "recipe-atlas",
+    "title": "Recipe Atlas",
+    "description": "Structured recipe documentation with baking logs, hydration tracking, and weekly meal snapshots.",
+    "image": "/assets/projects/recipe-atlas.svg",
+    "tags": ["Data Modeling", "Food", "Planning"],
+    "link": "https://github.com/c4ist",
+    "repository": "https://github.com/c4ist",
+    "featured": false,
+    "order": 4
+  },
+  {
+    "id": "lit-notes",
+    "title": "Lit Notes",
+    "description": "Reading highlights and thematic notes organized by genre to support long-term recall.",
+    "image": "/assets/projects/lit-notes.svg",
+    "tags": ["Knowledge Base", "Search", "Reading"],
+    "link": "https://github.com/c4ist",
+    "repository": "https://github.com/c4ist",
+    "featured": false,
+    "order": 5
+  }
+]

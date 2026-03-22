@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Home, Briefcase, BookOpen, ChefHat, X } from
 import { useTranslation } from 'react-i18next';
 
 const Sidebar = ({ isCollapsed, onToggle, isMobileOpen, onMobileClose }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
   const [isMobile, setIsMobile] = useState(false);
 

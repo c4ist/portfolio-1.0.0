@@ -1,7 +1,26 @@
-guide on how to install and run
+# Portfolio
 
-npm install 
-then
-npm run dev 
+This is my personal portfolio website. It's a simple, clean, and responsive website that showcases my work and skills.
 
-hope this helps 
+## Run
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## License
+
+AGPL-3.0-or-later (`LICENSE`).
+
+Forks, copies, and derivatives must remain open source under the same license.
+
+## Contributions
+
+By contributing, you agree your changes are licensed under AGPL-3.0-or-later.

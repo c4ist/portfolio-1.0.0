@@ -13,8 +13,8 @@ const resources = {
       },
       "home": {
         "hero": {
-          "eyebrow": "ml + systems",
-          "title": "i build machine learning systems with distributed thinking.",
+          "eyebrow": "",
+          "title": "computer intelligence enthusiast",
           "subtitle": "i'm cain, a second year high school student specializing in machine learning, computer vision, and distributed systems.",
           "primaryCta": "jump to featured works",
           "secondaryCta": "read about me"
@@ -22,17 +22,23 @@ const resources = {
         "about": {
           "eyebrow": "about",
           "title": "learning so elite they say im like an llm",
-          "description": "i focus on practical ML software, model pipelines, and infrastructure that scales cleanly.",
+          "description": "i focus on a couple of areas: ML specificially linear and logistic regression. ",
           "paragraphOne": "my main work is in machine learning and computer vision, including a facial recognition system built around robust detection and embedding-based matching.",
           "paragraphTwo": "i also study distributed systems to make ML workloads reliable, observable, and production-friendly.",
           "cta": "explore my projects"
         },
         "featured": {
           "eyebrow": "featured works",
-          "title": "featured machine learning work",
-          "description": "real projects centered on ML systems, inference workflows, and engineering fundamentals.",
+          "title": "featured work",
+          "description": "my most proud babies (of ML)",
           "cta": "view full archive",
           "empty": "featured projects are being curated."
+        },
+        "download": {
+          "eyebrow": "resume",
+          "title": "download resume",
+          "description": "download my resume as a pdf.",
+          "button": "download resume"
         },
         "other": {
           "eyebrow": "other sections",
@@ -96,26 +102,32 @@ const resources = {
       },
       "home": {
         "hero": {
-          "eyebrow": "ml + sistemas",
-          "title": "construyo sistemas de aprendizaje automático con mentalidad distribuida.",
+          "eyebrow": "",
+          "title": "entusiasta de la inteligencia computacional",
           "subtitle": "soy caín, estudiante de segundo año de secundaria, especializado en aprendizaje automático, visión por computadora y sistemas distribuidos.",
           "primaryCta": "ir a trabajos destacados",
           "secondaryCta": "leer sobre mí"
         },
         "about": {
           "eyebrow": "sobre mí",
-          "title": "aprendizaje automático primero, sistemas por diseño.",
-          "description": "me enfoco en software de ML práctico, pipelines de modelos e infraestructura que escala de forma limpia.",
-          "paragraphOne": "mi trabajo principal está en aprendizaje automático y visión por computadora, incluyendo un sistema de reconocimiento facial basado en detección robusta y matching por embeddings.",
-          "paragraphTwo": "también estudio sistemas distribuidos para que las cargas de ML sean confiables, observables y listas para producción.",
+          "title": "aprendo tan bien que dicen que soy como un llm",
+          "description": "me enfoco en un par de áreas: ML, específicamente regresión lineal y logística.",
+          "paragraphOne": "mi trabajo principal está en aprendizaje automático y visión por computadora, incluyendo un sistema de reconocimiento facial construido alrededor de detección robusta y emparejamiento basado en embeddings.",
+          "paragraphTwo": "también estudio sistemas distribuidos para que las cargas de trabajo de ML sean confiables, observables y listas para producción.",
           "cta": "explorar mis proyectos"
         },
         "featured": {
           "eyebrow": "trabajos destacados",
-          "title": "trabajo destacado en aprendizaje automático",
-          "description": "proyectos reales centrados en sistemas de ML, flujos de inferencia y fundamentos de ingeniería.",
+          "title": "trabajo destacado",
+          "description": "mis bebés de los que más me enorgullezco (de ML)",
           "cta": "ver archivo completo",
           "empty": "los proyectos destacados se están curando."
+        },
+        "download": {
+          "eyebrow": "currículum",
+          "title": "descargar currículum",
+          "description": "descarga mi currículum en pdf.",
+          "button": "descargar currículum"
         },
         "other": {
           "eyebrow": "otras secciones",

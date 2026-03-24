@@ -1,6 +1,6 @@
 # Portfolio
 
-This is my personal portfolio website. It's a simple, clean, and responsive website that showcases my work and skills.
+pretty simple
 
 ## Run
 

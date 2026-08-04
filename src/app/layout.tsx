@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: { canonical: "/" },
+  icons: { icon: "/favicon.svg" },
 };
 
 /* sRGB equivalent of --color-canvas, so mobile browser chrome matches the page. */

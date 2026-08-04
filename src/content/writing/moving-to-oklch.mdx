@@ -1,0 +1,31 @@
+I moved every colour in this site to OKLCH, and the thing I did not expect was how much of the work disappeared rather than got easier.
+
+## The problem with HSL
+
+HSL looks like it has the right controls. It does not.
+
+- `hsl(60 100% 50%)` is a blinding yellow. `hsl(240 100% 50%)` at the *same* stated lightness is a near-black blue. Lightness is not lightness.
+- Saturation depends on lightness, so a palette built by stepping `L` from 90% down to 10% loses colour at both ends in ways you have to correct by hand.
+- Blue drifts toward purple as it gets lighter. Every HSL ramp I have built has needed a manual hue nudge somewhere in the middle.
+
+OKLCH fixes all three, because it was designed against perception rather than against a convenient bit of maths.
+
+```css
+--color-canvas: oklch(0.158 0.006 255);
+--color-ink: oklch(0.965 0.002 255);
+--color-accent: oklch(0.816 0.114 197);
+```
+
+Three numbers: lightness from 0 to 1, chroma, hue angle. Equal steps in `L` look like equal steps in brightness. Hue stays put.
+
+## What it changed in practice
+
+Building a dark theme stopped being guesswork. I could pick a lightness gap that I knew would hold — foreground above `0.9` against a background below `0.25` — and then adjust chroma independently without the pair drifting out of contrast.
+
+Neutrals got better too. A trace of chroma at a single hue makes greys feel deliberate instead of dead, and because chroma is absolute, `0.006` reads the same at every lightness in the ramp.
+
+## The one thing to watch
+
+OKLCH describes colours that no sRGB display can show. High chroma at certain hues will clip, silently, to something duller than you asked for. Check the gamut boundary for the lightness and hue you are working at, and if you want the extra vividness on capable screens, ship an sRGB value first and layer the wider-gamut one behind a `@media (color-gamut: p3)` query.
+
+That is the whole migration. No new tooling, no runtime, and a palette I can now reason about instead of eyeball.

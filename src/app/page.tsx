@@ -1,69 +1,159 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
-export default function Home() {
+import { buttonClass } from "@/components/button";
+import { CopyEmail } from "@/components/copy-email";
+import { ExperienceList } from "@/components/experience-list";
+import { ArrowUpRightIcon, GitHubIcon, MailIcon } from "@/components/icons";
+import { PostRow } from "@/components/post-row";
+import { ProjectCard } from "@/components/project-card";
+import { Section } from "@/components/section";
+import { TextLink } from "@/components/text-link";
+import { projects } from "@/content/projects";
+import { posts } from "@/content/writing";
+import { site } from "@/lib/site";
+
+/** Staggers the one-time entrance defined in `globals.css`. */
+const step = (index: number) => ({ "--index": index }) as CSSProperties;
+
+/* Helps search engines resolve the page to a person rather than a company. */
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.role,
+  description: site.description,
+  url: site.url,
+  email: site.links.email.handle,
+  worksFor: { "@type": "Organization", name: site.company.name, url: site.company.url },
+  sameAs: [site.links.github.url],
+};
+
+const AVATAR_FALLBACK = `${site.links.github.url}.png`;
+
+async function getAvatarUrl(): Promise<string> {
+  try {
+    const res = await fetch(`https://api.github.com/users/${site.links.github.handle}`, {
+      next: { revalidate: 86400 },
+    });
+    if (!res.ok) return AVATAR_FALLBACK;
+    const data = await res.json();
+    return (data.avatar_url as string | undefined) ?? AVATAR_FALLBACK;
+  } catch {
+    return AVATAR_FALLBACK;
+  }
+}
+
+export default async function HomePage() {
+  const avatarUrl = await getAvatarUrl();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+
+      {/* Groups are separated by 40px and their contents by 20px, so the
+          grouping reads without needing a single divider line. */}
+      <div className="stagger flex flex-col gap-10">
+        <div style={step(0)} className="space-y-5">
+          <header className="flex items-center gap-3.5">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src={avatarUrl}
+              alt={`Profile picture of ${site.name}`}
+              width={44}
+              height={44}
+              priority
+              className="size-11 rounded-full object-cover outline outline-white/10 -outline-offset-1"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div>
+              <h1 className="text-title font-semibold tracking-[-0.01em] text-ink">{site.name}</h1>
+              <p className="text-body-sm text-ink-muted">
+                {site.role} at {site.company.name}
+              </p>
+            </div>
+          </header>
+
+          <div className="space-y-3 text-body text-ink-muted text-pretty">
+            <p>
+              I&rsquo;m a software engineer at{" "}
+              <TextLink href={site.company.url}>{site.company.name}</TextLink>, where I build the
+              services and tooling our products run on. I care{" "}
+              <em className="font-serif text-[1.06em] italic">deeply</em> about craft &mdash; the
+              parts of a product you only notice on the second look.
+            </p>
+            <p>
+              Before that I worked on internal tools and a handful of side projects, mostly around
+              developer experience and making slow things fast. You can read my{" "}
+              <TextLink href="/writing">notes</TextLink>, see my code on{" "}
+              <TextLink href={site.links.github.url} icon={<GitHubIcon />}>
+                GitHub
+              </TextLink>
+              , or reach me by{" "}
+              <TextLink href={site.links.email.url} icon={<MailIcon />}>
+                email
+              </TextLink>
+              .
+            </p>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <div style={step(1)}>
+          <Section title="Projects">
+            <ul className="grid gap-3.5 sm:grid-cols-2">
+              {projects.map((project) => (
+                <li key={project.slug}>
+                  <ProjectCard project={project} />
+                </li>
+              ))}
+            </ul>
+          </Section>
+        </div>
+
+        <div style={step(2)}>
+          <Section title="Experience">
+            <ExperienceList />
+          </Section>
+        </div>
+
+        <div style={step(3)}>
+          <Section
+            title="Writing"
+            action={
+              <TextLink href="/writing" className="text-caption font-normal">
+                <span className="inline-flex items-baseline gap-1">
+                  All notes
+                  <ArrowUpRightIcon aria-hidden className="size-3 translate-y-[0.1em]" />
+                </span>
+              </TextLink>
+            }
+          >
+            <ul>
+              {posts.slice(0, 2).map((post) => (
+                <PostRow key={post.slug} post={post} />
+              ))}
+            </ul>
+          </Section>
+        </div>
+
+        <div style={step(4)}>
+          <Section title="Contact">
+            <p className="mb-4 text-body text-ink-muted text-pretty">
+              Email is the best way to reach me. I read everything and reply to most of it.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href={site.links.email.url} className={buttonClass}>
+                <span aria-hidden className="text-ink-faint">
+                  <MailIcon className="size-3.5" />
+                </span>
+                Send an email
+              </a>
+              <CopyEmail email={site.links.email.handle} />
+            </div>
+          </Section>
+        </div>
+      </div>
+    </>
   );
 }

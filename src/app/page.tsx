@@ -80,8 +80,7 @@ export default async function HomePage() {
               I&rsquo;m a software engineer at{" "}
               <TextLink href={site.company.url}>{site.company.name}</TextLink>, where I build the
               services and tooling our products run on. I care{" "}
-              <em className="font-serif text-[1.06em] italic">deeply</em> about craft &mdash; the
-              parts of a product you only notice on the second look.
+              <em className="font-serif text-[1.06em] italic">deeply</em> about craft &mdash; optimization is my favorite part of the job. :)
             </p>
             <p>
               Before that I worked on internal tools and a handful of side projects, mostly around

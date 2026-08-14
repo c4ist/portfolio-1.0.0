@@ -1,9 +1,5 @@
 import type { ComponentType } from "react";
 
-import KeyboardFirst from "./keyboard-first.mdx";
-import MovingToOklch from "./moving-to-oklch.mdx";
-import QuietInterfaces from "./quiet-interfaces.mdx";
-
 /**
  * To add a post: drop an `.mdx` file in this folder and add an entry below.
  * Metadata lives here rather than in frontmatter so it stays type-checked.

@@ -40,15 +40,6 @@ export function HomeIcon(props: IconProps) {
   );
 }
 
-export function PenIcon(props: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden {...props} {...stroke}>
-      <path d="M16.6 3.65a2.05 2.05 0 0 1 2.9 2.9L9.3 16.75l-4.05 1.15 1.15-4.05z" />
-      <path d="M4.25 20.75h9" />
-    </svg>
-  );
-}
-
 export function ArrowUpRightIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden {...props} {...stroke}>
@@ -86,15 +77,6 @@ export function CheckIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden {...props} {...stroke}>
       <path d="m4.5 12.5 5 5 10-11" />
-    </svg>
-  );
-}
-
-export function RssIcon(props: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden {...props} {...stroke}>
-      <path d="M4.5 11a8.5 8.5 0 0 1 8.5 8.5M4.5 5.5A14 14 0 0 1 18.5 19.5" />
-      <circle cx="5.25" cy="18.75" r="1.25" fill="currentColor" stroke="none" />
     </svg>
   );
 }

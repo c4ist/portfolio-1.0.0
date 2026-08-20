@@ -4,13 +4,11 @@ import type { CSSProperties } from "react";
 import { buttonClass } from "@/components/button";
 import { CopyEmail } from "@/components/copy-email";
 import { ExperienceList } from "@/components/experience-list";
-import { ArrowUpRightIcon, GitHubIcon, MailIcon } from "@/components/icons";
-import { PostRow } from "@/components/post-row";
+import { GitHubIcon, MailIcon } from "@/components/icons";
 import { ProjectCard } from "@/components/project-card";
 import { Section } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import { projects } from "@/content/projects";
-import { posts } from "@/content/writing";
 import { site } from "@/lib/site";
 
 /** Staggers the one-time entrance defined in `globals.css`. */
@@ -65,7 +63,7 @@ export default async function HomePage() {
               width={44}
               height={44}
               priority
-              className="size-11 rounded-full object-cover outline outline-white/10 -outline-offset-1"
+              className="size-11 rounded-full object-cover outline outline-black/10 -outline-offset-1"
             />
             <div>
               <h1 className="text-title font-semibold tracking-[-0.01em] text-ink">{site.name}</h1>
@@ -85,8 +83,7 @@ export default async function HomePage() {
             </p>
             <p>
               Before that I worked on internal tools and a handful of side projects, mostly around
-              developer experience and making slow things fast. You can read my{" "}
-              <TextLink href="/writing">notes</TextLink>, see my code on{" "}
+              developer experience and making slow things fast. You can see my code on{" "}
               <TextLink href={site.links.github.url} icon={<GitHubIcon />}>
                 GitHub
               </TextLink>
@@ -118,26 +115,6 @@ export default async function HomePage() {
         </div>
 
         <div style={step(3)}>
-          <Section
-            title="Writing"
-            action={
-              <TextLink href="/writing" className="text-caption font-normal">
-                <span className="inline-flex items-baseline gap-1">
-                  All notes
-                  <ArrowUpRightIcon aria-hidden className="size-3 translate-y-[0.1em]" />
-                </span>
-              </TextLink>
-            }
-          >
-            <ul>
-              {posts.slice(0, 2).map((post) => (
-                <PostRow key={post.slug} post={post} />
-              ))}
-            </ul>
-          </Section>
-        </div>
-
-        <div style={step(4)}>
           <Section title="Contact">
             <p className="mb-4 text-body text-ink-muted text-pretty">
               Email is the best way to reach me. I read everything and reply to most of it.

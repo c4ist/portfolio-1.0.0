@@ -7,11 +7,11 @@ import { site } from "@/lib/site";
 export const ogSize = { width: 1200, height: 630 };
 
 const color = {
-  canvas: "#161310",
-  glow: "#2c241c",
-  ink: "#f6f4f2",
-  inkMuted: "#c4bdb7",
-  accent: "#f6a14f",
+  canvas: "#fcf9f7",
+  glow: "#ffffff",
+  ink: "#211c17",
+  inkMuted: "#5e5650",
+  accent: "#a0601b",
 };
 
 export function OgCard({ eyebrow, title }: { eyebrow?: string; title: string }) {

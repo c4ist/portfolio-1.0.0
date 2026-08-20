@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Theme: single dark appearance, OKLCH throughout.
+   Theme: single light appearance, OKLCH throughout.
 
    Neutrals sit on one warm hue (62) with a trace of chroma, so surfaces read
-   as deliberate warm greys rather than dead neutral. Chroma rises slightly as
-   lightness drops, which keeps the dark surfaces from going muddy.
+   as deliberate warm whites rather than dead neutral. Chroma stays low so the
+   light surfaces keep a paper-like warmth instead of going grey.
 
    The accent is the only chromatic colour in the system and carries exactly
-   one meaning: interactive. Its chroma (0.14 at L 0.78, H 62) sits inside the
+   one meaning: interactive. Its chroma (0.115 at L 0.55, H 62) sits inside the
    sRGB boundary for that hue, so nothing clips.
 --------------------------------------------------------------------------- */
 
 @theme {
-  --color-canvas: oklch(0.19 0.008 62);
-  --color-surface: oklch(0.247 0.011 62);
-  --color-surface-raised: oklch(0.288 0.013 62);
-  --color-inset: oklch(0.216 0.009 62);
+  --color-canvas: oklch(0.985 0.004 62);
+  --color-surface: oklch(0.955 0.006 62);
+  --color-surface-raised: oklch(0.995 0.004 62);
+  --color-inset: oklch(0.93 0.006 62);
 
-  --color-line: oklch(1 0 0 / 0.08);
-  --color-line-strong: oklch(1 0 0 / 0.16);
+  --color-line: oklch(0 0 0 / 0.08);
+  --color-line-strong: oklch(0 0 0 / 0.16);
 
-  --color-ink: oklch(0.968 0.004 62);
-  --color-ink-muted: oklch(0.802 0.012 62);
-  --color-ink-faint: oklch(0.696 0.014 62);
+  --color-ink: oklch(0.23 0.012 62);
+  --color-ink-muted: oklch(0.46 0.014 62);
+  --color-ink-faint: oklch(0.55 0.016 62);
 
-  --color-accent: oklch(0.78 0.14 62);
-  --color-accent-dim: oklch(0.664 0.126 56);
+  --color-accent: oklch(0.55 0.115 62);
+  --color-accent-dim: oklch(0.48 0.11 56);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
@@ -48,9 +48,9 @@
   --ease-smooth: cubic-bezier(0.2, 0, 0, 1);
 
   /* Elevation comes from layered transparent shadows, not from borders. */
-  --shadow-card: 0 1px 2px oklch(0 0 0 / 0.3), 0 6px 20px -12px oklch(0 0 0 / 0.6);
-  --shadow-card-hover: 0 2px 4px oklch(0 0 0 / 0.32),
-    0 16px 34px -14px oklch(0 0 0 / 0.7);
+  --shadow-card: 0 1px 2px oklch(0 0 0 / 0.06), 0 6px 20px -12px oklch(0 0 0 / 0.12);
+  --shadow-card-hover: 0 2px 4px oklch(0 0 0 / 0.08),
+    0 16px 34px -14px oklch(0 0 0 / 0.18);
 }
 
 /* ---------------------------------------------------------------------------
@@ -58,7 +58,7 @@
 --------------------------------------------------------------------------- */
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   scrollbar-gutter: stable;
 }
 
@@ -71,7 +71,7 @@ body {
 }
 
 ::selection {
-  background-color: oklch(0.78 0.14 62 / 0.3);
+  background-color: oklch(0.55 0.115 62 / 0.25);
   color: var(--color-ink);
 }
 
@@ -245,7 +245,7 @@ body {
 
 .prose img {
   border-radius: 12px;
-  outline: 1px solid oklch(1 0 0 / 0.1);
+  outline: 1px solid oklch(0 0 0 / 0.1);
   outline-offset: -1px;
 }
 

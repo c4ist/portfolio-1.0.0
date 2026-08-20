@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Newsreader } from "next/font/google";
 import type { ReactNode } from "react";
 
-import { GitHubIcon, HomeIcon, MailIcon, PenIcon } from "@/components/icons";
+import { GitHubIcon, HomeIcon, MailIcon } from "@/components/icons";
 import { NavLink } from "@/components/nav-link";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
 
 /* sRGB equivalent of --color-canvas, so mobile browser chrome matches the page. */
 export const viewport: Viewport = {
-  themeColor: "#17130f",
-  colorScheme: "dark",
+  themeColor: "#fcf9f7",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -90,12 +90,6 @@ function SiteFooter() {
           <HomeIcon className="size-3.5" />
         </FooterIcon>
         Home
-      </NavLink>
-      <NavLink href="/writing" className={footerItemClass}>
-        <FooterIcon>
-          <PenIcon className="size-3.5" />
-        </FooterIcon>
-        Writing
       </NavLink>
       <a
         href={site.links.github.url}
